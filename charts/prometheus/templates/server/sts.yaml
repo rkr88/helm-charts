@@ -177,6 +177,10 @@ spec:
       securityContext:
 {{ toYaml .Values.server.securityContext | indent 8 }}
     {{- end }}
+    {{- if .Values.server.dnsPolicy }}
+      dnsPolicy:
+{{- toYaml .Values.server.dnsPolicy | nindent 8 }}
+    {{- end }}
     {{- if .Values.server.dnsConfig }}
       dnsConfig:
 {{- toYaml .Values.server.dnsConfig | nindent 8 }}
